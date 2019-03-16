@@ -1,6 +1,11 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <span>Firebase Restaurant</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button *ngIf="isLoggedin()" (click)="logout()">
+      Logout
+    </button>
+    
   </mat-toolbar-row>
 </mat-toolbar>
 <div class="container">

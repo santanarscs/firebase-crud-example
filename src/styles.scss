@@ -14,11 +14,11 @@ body {
 mat-card {
     margin-top: 5px
 }
-.form-prestador {
+.form-prestador, .form-login {
     display: flex;
     flex-direction: column
 }
-.form-prestador > * {
+.form-prestador, .form-login > * {
     width: 100%
 }
 .fab-container {
@@ -40,4 +40,11 @@ mat-card {
         margin-bottom: 17px;
       }
     }
+  }
+  .example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
   }

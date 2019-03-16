@@ -1,0 +1,11 @@
+<mat-card>
+  <form class="form-login" (submit)="onLogin()">
+    <mat-form-field>
+      <input matInput type="text" placeholder="E-mail" autofocus name="email" [(ngModel)]="user.email">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Senha" name="password" [(ngModel)]="user.password">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Login</button>
+  </form>
+</mat-card>
