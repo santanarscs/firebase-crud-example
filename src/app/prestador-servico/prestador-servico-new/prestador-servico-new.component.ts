@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PrestadorServicoService } from '../../shared/prestador-servico.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-prestador-servico-new',
@@ -10,12 +11,21 @@ import { Router } from '@angular/router';
 export class PrestadorServicoNewComponent implements OnInit {
 
   prestador = {cnpj: '', razaoSocial: '' };
-  constructor(private service: PrestadorServicoService, private router: Router) { }
+  constructor(
+    private service: PrestadorServicoService,
+    private router: Router,
+    private snackBar: MatSnackBar
+    ) { }
 
   ngOnInit() {
   }
   saveData() {
-    this.service.insert(this.prestador).then(res => this.router.navigate(['/']));
+    this.service.insert(this.prestador).then(res => {
+      this.router.navigate(['/']);
+      this.snackBar.open('Item adicionado com sucesso', 'OK', {
+        duration: 2000
+      });
+    });
   }
   navigateBack() {
     this.router.navigate(['/']);

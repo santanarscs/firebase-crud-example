@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PrestadorServicoService } from '../../shared/prestador-servico.service';
 import { PrestadorServico } from '../prestador-servico';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-prestador-servico-edit',
@@ -19,7 +20,8 @@ export class PrestadorServicoEditComponent implements OnInit {
   constructor(
     private service: PrestadorServicoService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -32,7 +34,12 @@ export class PrestadorServicoEditComponent implements OnInit {
   }
 
   update() {
-    this.service.update(this.prestador).then(res => this.router.navigate(['/']));
+    this.service.update(this.prestador).then(res => {
+      this.router.navigate(['/']);
+      this.snackBar.open('Item editado com sucesso', 'OK', {
+        duration: 2000
+      });
+    });
   }
   navigateBack() {
     this.router.navigate(['/']);
