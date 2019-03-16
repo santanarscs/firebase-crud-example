@@ -1,5 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
 
+@include mat-core();
+$candy-app-primary: mat-palette($mat-teal);
+$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$candy-app-warn:    mat-palette($mat-red);
+$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+@include angular-material-theme($candy-app-theme);
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 body {
@@ -14,11 +21,11 @@ body {
 mat-card {
     margin-top: 5px
 }
-.form-prestador, .form-login {
+.form-prestador {
     display: flex;
     flex-direction: column
 }
-.form-prestador, .form-login > * {
+.form-prestador > * {
     width: 100%
 }
 .fab-container {
