@@ -9,6 +9,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { MatToolbarModule, MatFormFieldModule, MatCardModule, MatButtonModule, MatInputModule } from '@angular/material';
+import { PrestadorServicoModule } from './prestador-servico/prestador-servico.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -18,6 +19,7 @@ import { MatToolbarModule, MatFormFieldModule, MatCardModule, MatButtonModule, M
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    PrestadorServicoModule,
     AngularFirestoreModule,
     FormsModule,
     MatToolbarModule,

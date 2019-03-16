@@ -4,25 +4,5 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <div class="container">
-  <mat-card>
-    <form class="form-prestador" (submit)="onSubmit()">
-      <mat-form-field>
-        <input matInput type="text" name="cnpj" placeholder="CNPJ" [(ngModel)]="prestador.cnpj"><br>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput type="text" name="razaoSocial" [(ngModel)]="prestador.razaoSocial" placeholder="Razão Social"><br>
-      </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Enviar</button>
-    </form>
-  </mat-card>
-  <div style="padding: 10px 0"> </div>
-  <mat-card *ngFor="let prestador of data">
-    <mat-card-title>{{prestador.razaoSocial}}</mat-card-title>
-    <mat-card-subtitle>{{prestador.cnpj}}</mat-card-subtitle>
-    <mat-card-actions>
-      <button mat-button (click)="edit(prestador)">EDITAR</button>
-      <button mat-button (click)="remove(prestador.id)">REMOVER</button>
-    </mat-card-actions>
-  </mat-card>
+  <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
