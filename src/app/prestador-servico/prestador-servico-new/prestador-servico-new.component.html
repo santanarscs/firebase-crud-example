@@ -1,4 +1,13 @@
+<h1>Novo Prestador</h1>
 <app-prestador-servico-form 
   [prestador]="prestador" 
   (create)="saveData($event)">
 </app-prestador-servico-form>
+
+<div class="fab-container">
+  <button 
+    mat-fab class="fab-toggler" 
+    (click)="navigateBack()"
+    color="primary"
+  ><i class="material-icons">keyboard_arrow_left</i></button>
+</div>

@@ -34,4 +34,7 @@ export class PrestadorServicoEditComponent implements OnInit {
   update() {
     this.service.update(this.prestador).then(res => this.router.navigate(['/']));
   }
+  navigateBack() {
+    this.router.navigate(['/']);
+  }
 }

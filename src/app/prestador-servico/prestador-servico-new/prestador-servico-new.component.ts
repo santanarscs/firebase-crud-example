@@ -17,4 +17,7 @@ export class PrestadorServicoNewComponent implements OnInit {
   saveData() {
     this.service.insert(this.prestador).then(res => this.router.navigate(['/']));
   }
+  navigateBack() {
+    this.router.navigate(['/']);
+  }
 }
