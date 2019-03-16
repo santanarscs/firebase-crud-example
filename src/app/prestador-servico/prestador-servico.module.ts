@@ -5,8 +5,16 @@ import { PrestadorServicoEditComponent } from './prestador-servico-edit/prestado
 import { PrestadorServicoDetailComponent } from './prestador-servico-detail/prestador-servico-detail.component';
 import { MatFormFieldModule, MatCardModule, MatButtonModule, MatInputModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { PrestadorServicoNewComponent } from './prestador-servico-new/prestador-servico-new.component';
+import { PrestadorServicoFormComponent } from './prestador-servico-form/prestador-servico-form.component';
 @NgModule({
-  declarations: [PrestadorServicoListComponent, PrestadorServicoEditComponent, PrestadorServicoDetailComponent],
+  declarations: [
+    PrestadorServicoListComponent,
+    PrestadorServicoEditComponent,
+    PrestadorServicoDetailComponent,
+    PrestadorServicoNewComponent,
+    PrestadorServicoFormComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -15,6 +23,12 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatInputModule
   ],
-  exports: [PrestadorServicoDetailComponent, PrestadorServicoEditComponent, PrestadorServicoListComponent]
+  exports: [
+    PrestadorServicoListComponent,
+    PrestadorServicoEditComponent,
+    PrestadorServicoDetailComponent,
+    PrestadorServicoNewComponent,
+    PrestadorServicoFormComponent
+  ]
 })
 export class PrestadorServicoModule { }

@@ -1,5 +1,6 @@
 export class PrestadorServico {
-    id = '';
+    id = null;
     cnpj = '';
     razaoSocial = '';
+
 }

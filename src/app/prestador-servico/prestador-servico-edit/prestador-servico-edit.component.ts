@@ -11,7 +11,11 @@ import { PrestadorServico } from '../prestador-servico';
 })
 export class PrestadorServicoEditComponent implements OnInit {
 
-  prestador = { id: '', cnpj: '', razaoSocial: '' };
+  prestador = {
+    id: '',
+    cnpj: '',
+    razaoSocial: ''
+  };
   constructor(
     private service: PrestadorServicoService,
     private route: ActivatedRoute,
@@ -19,21 +23,15 @@ export class PrestadorServicoEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.route.snapshot.params['id']) {
-      this.service.getById(this.route.snapshot.params['id'])
-        .subscribe((res: PrestadorServico) => {
-          this.prestador.id = res.id;
-          this.prestador.cnpj = res.cnpj;
-          this.prestador.razaoSocial = res.razaoSocial;
-        });
-    }
+    this.service.getById(this.route.snapshot.params['id'])
+      .subscribe((res: PrestadorServico) => {
+        this.prestador.id = res.id;
+        this.prestador.cnpj = res.cnpj;
+        this.prestador.razaoSocial = res.razaoSocial;
+      });
   }
 
-  onSubmit() {
-    if (this.prestador.id) {
-      this.service.update(this.prestador).then(res => this.router.navigate(['/']));
-    } else {
-      this.service.insert(this.prestador).then(res => this.router.navigate(['/']));
-    }
+  update() {
+    this.service.update(this.prestador).then(res => this.router.navigate(['/']));
   }
 }

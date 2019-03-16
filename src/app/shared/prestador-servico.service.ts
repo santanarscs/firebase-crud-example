@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { PrestadorServico } from '../prestador-servico/prestador-servico';
 @Injectable({
   providedIn: 'root'
@@ -19,16 +19,23 @@ export class PrestadorServicoService {
       }))
     );
   }
-  insert(data: PrestadorServico) {
+  insert(data) {
     return this.db.collection('prestadores').add(data);
   }
-  update(data: PrestadorServico) {
+  update(data) {
     return this.db.doc(`prestadores/${data.id}`).update(data);
   }
   remove(key) {
     return this.db.doc(`prestadores/${key}`).delete();
   }
   getById(key) {
-    return this.db.doc(`prestadores/${key}`).valueChanges();
+    return this.db.doc(`prestadores/${key}`).snapshotChanges()
+      .pipe(
+        map(res => {
+          const data = res.payload.data();
+          const id = res.payload.id;
+          return {id, ...data};
+        })
+      );
   }
 }
