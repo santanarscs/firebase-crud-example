@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" *ngIf="isLoggedin()">
+<!-- <mat-toolbar class="mat-elevation-z4" color="primary" *ngIf="isLoggedin()">
   <mat-toolbar-row>
     <span>Firebase Restaurant</span>
     <span class="example-spacer"></span>
@@ -10,4 +10,17 @@
 </mat-toolbar>
 <div class="container">
   <router-outlet></router-outlet>
-</div>
+</div> -->
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+        <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+      <!--this is a place for us to add side-nav code-->
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+      <!--in here all the content must reside. We will add a navigation header as well-->
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

@@ -27,6 +27,6 @@ export class PrestadorServicoNewComponent implements OnInit {
     });
   }
   navigateBack() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/prestadores']);
   }
 }

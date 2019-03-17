@@ -25,10 +25,10 @@ export class PrestadorServicoListComponent implements OnInit {
     this.data = this.service.getAll();
   }
   navigateNew() {
-    this.router.navigate(['/new']);
+    this.router.navigate(['prestadores/new']);
   }
   navigateEdit(key) {
-    this.router.navigate(['/new', key]);
+    this.router.navigate(['prestadores/new', key]);
   }
   remove(key) {
     let dialogRef: MatDialogRef<PrestadorServicoDialogComponent>;

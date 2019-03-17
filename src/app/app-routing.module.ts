@@ -6,12 +6,14 @@ import { PrestadorServicoDetailComponent } from './prestador-servico/prestador-s
 import { PrestadorServicoNewComponent } from './prestador-servico/prestador-servico-new/prestador-servico-new.component';
 import { LoginComponent } from './auth/login/login.component';
 import {AdminGuard } from './admin.guard';
+import { HomeComponent } from './home/home.component';
 const routes: Routes = [
-  {path: '', component: PrestadorServicoListComponent, canActivate: [AdminGuard]},
-  {path: 'login', component: LoginComponent},
-  {path: 'new/:id', component: PrestadorServicoEditComponent, canActivate: [AdminGuard]},
-  {path: ':id/detail', component: PrestadorServicoDetailComponent, canActivate: [AdminGuard]},
-  {path: 'new', component: PrestadorServicoNewComponent, canActivate: [AdminGuard]},
+  { path: 'home', component: HomeComponent, canActivate: [AdminGuard]},
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: 'prestadores', component: PrestadorServicoListComponent, canActivate: [AdminGuard]},
+  { path: 'prestadores/new/:id', component: PrestadorServicoEditComponent, canActivate: [AdminGuard] },
+  { path: 'prestadores/new', component: PrestadorServicoNewComponent, canActivate: [AdminGuard] },
+  { path: 'login', component: LoginComponent},
 ];
 
 @NgModule({

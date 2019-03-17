@@ -34,6 +34,6 @@ export class PrestadorServicoEditComponent implements OnInit {
     });
   }
   navigateBack() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/prestadores']);
   }
 }
