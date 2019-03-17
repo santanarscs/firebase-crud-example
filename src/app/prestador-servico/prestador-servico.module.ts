@@ -4,7 +4,7 @@ import { PrestadorServicoListComponent } from './prestador-servico-list/prestado
 import { PrestadorServicoEditComponent } from './prestador-servico-edit/prestador-servico-edit.component';
 import { PrestadorServicoDetailComponent } from './prestador-servico-detail/prestador-servico-detail.component';
 import { MatFormFieldModule, MatCardModule, MatButtonModule, MatInputModule, MatDialogModule, MatSnackBarModule } from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrestadorServicoNewComponent } from './prestador-servico-new/prestador-servico-new.component';
 import { PrestadorServicoFormComponent } from './prestador-servico-form/prestador-servico-form.component';
 import { PrestadorServicoDialogComponent } from './prestador-servico-dialog/prestador-servico-dialog.component';
@@ -19,6 +19,7 @@ import { PrestadorServicoDialogComponent } from './prestador-servico-dialog/pres
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     FormsModule,
     MatFormFieldModule,
     MatCardModule,

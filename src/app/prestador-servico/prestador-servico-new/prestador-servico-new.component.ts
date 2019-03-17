@@ -10,7 +10,6 @@ import { MatSnackBar } from '@angular/material';
 })
 export class PrestadorServicoNewComponent implements OnInit {
 
-  prestador = {cnpj: '', razaoSocial: '' };
   constructor(
     private service: PrestadorServicoService,
     private router: Router,
@@ -19,8 +18,8 @@ export class PrestadorServicoNewComponent implements OnInit {
 
   ngOnInit() {
   }
-  saveData() {
-    this.service.insert(this.prestador).then(res => {
+  saveData(event) {
+    this.service.insert(event).then(res => {
       this.router.navigate(['/']);
       this.snackBar.open('Item adicionado com sucesso', 'OK', {
         duration: 2000

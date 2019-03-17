@@ -12,11 +12,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class PrestadorServicoEditComponent implements OnInit {
 
-  prestador = {
-    id: '',
-    cnpj: '',
-    razaoSocial: ''
-  };
+  prestador: PrestadorServico;
   constructor(
     private service: PrestadorServicoService,
     private route: ActivatedRoute,
@@ -26,15 +22,11 @@ export class PrestadorServicoEditComponent implements OnInit {
 
   ngOnInit() {
     this.service.getById(this.route.snapshot.params['id'])
-      .subscribe((res: PrestadorServico) => {
-        this.prestador.id = res.id;
-        this.prestador.cnpj = res.cnpj;
-        this.prestador.razaoSocial = res.razaoSocial;
-      });
+      .subscribe((res: PrestadorServico) => this.prestador = res);
   }
 
-  update() {
-    this.service.update(this.prestador).then(res => {
+  updateData(event) {
+    this.service.update(event).then(res => {
       this.router.navigate(['/']);
       this.snackBar.open('Item editado com sucesso', 'OK', {
         duration: 2000

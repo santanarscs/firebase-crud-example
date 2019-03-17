@@ -1,10 +1,10 @@
 <mat-card>
-  <form class="form-prestador" (submit)="sendSubmit()">
+  <form class="form-prestador"  (submit)="sendSubmit()" [formGroup]="formulario">
     <mat-form-field>
-      <input matInput focus type="text" name="cnpj" placeholder="CNPJ" [(ngModel)]="prestador.cnpj"><br>
+      <input matInput focus type="text" name="cnpj" placeholder="CNPJ" formControlName="cnpj">
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="text" name="razaoSocial" [(ngModel)]="prestador.razaoSocial" placeholder="Razão Social"><br>
+      <input matInput type="text" name="razaoSocial" formControlName="razaoSocial" placeholder="Razão Social">
     </mat-form-field>
     <button mat-raised-button color="primary" type="submit">Enviar</button>
   </form>
