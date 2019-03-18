@@ -24,6 +24,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { SidenavListComponent } from './layout/navigation/sidenav-list/sidenav-list.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
+import { TomadorServicoModule } from './tomador-servico/tomador-servico.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { HomeComponent } from './home/home.component';
     AngularFireModule.initializeApp(environment.firebase),
     FlexLayoutModule,
     PrestadorServicoModule,
+    TomadorServicoModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
     FormsModule,

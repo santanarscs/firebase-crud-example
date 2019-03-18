@@ -18,7 +18,6 @@ export class PrestadorServicoFormComponent implements OnInit, OnChanges {
   formulario: FormGroup;
   constructor(private fb: FormBuilder) {
     this.formulario = this.fb.group({
-      // 'id': [''],
       'cnpj': [this.prestador.cnpj],
       'razaoSocial': [this.prestador.razaoSocial]
     });

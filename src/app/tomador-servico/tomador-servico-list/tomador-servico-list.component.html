@@ -1,0 +1,18 @@
+<h1>Lista de Tomadores de Serviço</h1>
+<mat-spinner color="primary" style="margin: 0 auto" *ngIf="(tomadores$ | async) == null"></mat-spinner>
+<mat-card *ngFor="let tomador of tomadores$ | async">
+  <mat-card-title>{{tomador.razaoSocial}}</mat-card-title>
+  <mat-card-subtitle>{{tomador.cnpj}}</mat-card-subtitle>
+  <mat-card-actions>
+    <button mat-button (click)="navigateEdit(tomador.id)">EDITAR</button>
+    <button mat-button (click)="remove(tomador.id)">REMOVER</button>
+  </mat-card-actions>
+</mat-card>
+
+<div class="fab-container">
+  <button 
+    mat-fab class="fab-toggler" 
+    (click)="navigateNew()"
+    color="primary"
+  ><i class="material-icons">add</i></button>
+</div>
