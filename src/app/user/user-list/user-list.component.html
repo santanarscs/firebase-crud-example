@@ -1,0 +1,17 @@
+<h1>Lista de Usuários</h1>
+<mat-spinner color="primary" style="margin: 0 auto" *ngIf="(data | async) == null"></mat-spinner>
+<mat-card *ngFor="let user of data | async">
+  <mat-card-title>{{user | json}}</mat-card-title>
+  <mat-card-actions>
+    <button mat-button (click)="navigateEdit(uuser.id)">EDITAR</button>
+    <button mat-button (click)="remove(user.id)">REMOVER</button>
+  </mat-card-actions>
+</mat-card>
+
+<div class="fab-container">
+  <button 
+    mat-fab class="fab-toggler" 
+    (click)="navigateNew()"
+    color="primary"
+  ><i class="material-icons">add</i></button>
+</div>

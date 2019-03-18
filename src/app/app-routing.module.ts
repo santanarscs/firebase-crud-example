@@ -9,16 +9,20 @@ import { HomeComponent } from './home/home.component';
 import { TomadorServicoListComponent } from './tomador-servico/tomador-servico-list/tomador-servico-list.component';
 import { TomadorServicoEditComponent } from './tomador-servico/tomador-servico-edit/tomador-servico-edit.component';
 import { TomadorServicoNewComponent } from './tomador-servico/tomador-servico-new/tomador-servico-new.component';
+import { UserListComponent } from './user/user-list/user-list.component';
+import { UserNewComponent } from './user/user-new/user-new.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AdminGuard]},
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'prestadores', component: PrestadorServicoListComponent, canActivate: [AdminGuard]},
   { path: 'prestadores/new/:id', component: PrestadorServicoEditComponent, canActivate: [AdminGuard] },
   { path: 'prestadores/new', component: PrestadorServicoNewComponent, canActivate: [AdminGuard] },
-  
+
   { path: 'tomadores', component: TomadorServicoListComponent, canActivate: [AdminGuard]},
   { path: 'tomadores/:id', component: TomadorServicoEditComponent, canActivate: [AdminGuard] },
   { path: 'tomadores/new', component: TomadorServicoNewComponent, canActivate: [AdminGuard] },
+  { path: 'usuarios', component: UserListComponent, canActivate: [AdminGuard] },
+  { path: 'usuarios/new', component: UserNewComponent, canActivate: [AdminGuard] },
   { path: 'login', component: LoginComponent},
 ];
 

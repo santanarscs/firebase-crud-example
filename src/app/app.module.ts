@@ -20,26 +20,25 @@ import { MatToolbarModule,
 } from '@angular/material';
 import { PrestadorServicoModule } from './prestador-servico/prestador-servico.module';
 import { LoginComponent } from './auth/login/login.component';
-import { HeaderComponent } from './layout/header/header.component';
-import { SidenavListComponent } from './layout/navigation/sidenav-list/sidenav-list.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
 import { TomadorServicoModule } from './tomador-servico/tomador-servico.module';
+import { MyNavComponent } from './layout/my-nav/my-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { UserModule } from './user/user.module';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HeaderComponent,
-    SidenavListComponent,
-    HomeComponent
+    HomeComponent,
+    MyNavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    FlexLayoutModule,
     PrestadorServicoModule,
+    UserModule,
     TomadorServicoModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
@@ -51,7 +50,8 @@ import { TomadorServicoModule } from './tomador-servico/tomador-servico.module';
     MatInputModule,
     MatIconModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

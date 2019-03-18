@@ -1,0 +1,11 @@
+<mat-card>
+  <form class="form-prestador"  (submit)="sendSubmit()" [formGroup]="formulario">
+    <mat-form-field>
+      <input matInput focus type="text" name="nome" placeholder="Nome" formControlName="nome">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" name="password" formControlName="password" placeholder="Senha">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Enviar</button>
+  </form>
+</mat-card>
