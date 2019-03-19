@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from '../../user.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
@@ -12,26 +11,17 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class UserNewComponent implements OnInit {
 
-  formulario: FormGroup;
   constructor(
     private service: UserService,
-    private fb: FormBuilder,
     private router: Router,
     private snackBar: MatSnackBar,
     private afAuth: AngularFireAuth
   ) { }
 
   ngOnInit() {
-    this.formulario = this.fb.group({
-      'nome': [''],
-      'email': [''],
-      'password': [''],
-      'permissao': [''],
-      'user_id': ['']
-    });
   }
-  sendSubmit() {
-    let valueSubmit = Object.assign({}, this.formulario.value);
+  insert(data) {
+    let valueSubmit = Object.assign({}, data);
     this.afAuth.auth
       .createUserWithEmailAndPassword(valueSubmit.email, valueSubmit.password)
       .then(res => {
@@ -46,5 +36,8 @@ export class UserNewComponent implements OnInit {
           this.router.navigate(['/usuarios/']);
         });
       });
+  }
+  navigateBack() {
+    this.router.navigate(['/usuarios']);
   }
 }
