@@ -1,11 +1,12 @@
 <h1>Lista de Usuários</h1>
 <mat-spinner color="primary" style="margin: 0 auto" *ngIf="(users$ | async) == null"></mat-spinner>
-<mat-card *ngFor="let user of users$ | async">
-  <mat-card-title>{{user.nome}}</mat-card-title>
+<mat-card *ngFor="let user of users$ | async" [class.adm]="verifyPermissao(user.permissao)">
+  <mat-card-title>{{user.nome}} <span *ngIf="verifyPermissao(user.permissao)">(Administrador)</span></mat-card-title>
   <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
-  <mat-card-content *ngIf="user.permissoes">
+  <mat-card-content *ngIf="user.permissao">
+    <div *ngIf="user.tomador">{{user.tomador.razaoSocial}}</div>
     <ul>
-      <li *ngFor="let p of user.permissoes">{{ p.nome }}</li>
+      <li *ngFor="let p of user.permissao">{{ p }}</li>
     </ul>
   </mat-card-content>
   <mat-card-actions>

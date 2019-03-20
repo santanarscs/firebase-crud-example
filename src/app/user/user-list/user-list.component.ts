@@ -14,7 +14,7 @@ export class UserListComponent implements OnInit {
   constructor(
     private service: UserService,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.users$ = this.service.getAll();
@@ -22,5 +22,12 @@ export class UserListComponent implements OnInit {
 
   navigateNew() {
     this.router.navigate(['/usuarios/new']);
+  }
+  verifyPermissao(permissao) {
+    if (permissao) {
+      const test = Boolean(permissao.find(v => v == 'Administrador'))
+      return test
+    }
+    return false
   }
 }
