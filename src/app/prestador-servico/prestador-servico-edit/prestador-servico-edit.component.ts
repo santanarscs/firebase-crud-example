@@ -27,7 +27,7 @@ export class PrestadorServicoEditComponent implements OnInit {
 
   updateData(event) {
     this.service.update(event).then(res => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/prestadores']);
       this.snackBar.open('Item editado com sucesso', 'OK', {
         duration: 2000
       });

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/user.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-user-edit',
@@ -8,11 +10,27 @@ import { Router } from '@angular/router';
 })
 export class UserEditComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  usuario: any;
+  constructor(
+    private service: UserService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) { }
 
   ngOnInit() {
+    this.service.getById(this.route.snapshot.params['id'])
+      .subscribe((res: any) => this.usuario = res);
   }
 
+  updateData(event) {
+    this.service.update(event).then(res => {
+      this.router.navigate(['/usuarios']);
+      this.snackBar.open('Item editado com sucesso', 'OK', {
+        duration: 2000
+      });
+    });
+  }
   navigateBack() {
     this.router.navigate(['/usuarios']);
   }

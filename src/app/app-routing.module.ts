@@ -11,6 +11,7 @@ import { TomadorServicoEditComponent } from './tomador-servico/tomador-servico-e
 import { TomadorServicoNewComponent } from './tomador-servico/tomador-servico-new/tomador-servico-new.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { UserNewComponent } from './user/user-new/user-new.component';
+import { UserEditComponent } from './user/user-edit/user-edit.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AdminGuard]},
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'tomadores/new', component: TomadorServicoNewComponent, canActivate: [AdminGuard] },
   { path: 'usuarios', component: UserListComponent, canActivate: [AdminGuard] },
   { path: 'usuarios/new', component: UserNewComponent, canActivate: [AdminGuard] },
+  { path: 'usuarios/edit/:id', component: UserEditComponent, canActivate: [AdminGuard] },
   { path: 'login', component: LoginComponent},
 ];
 

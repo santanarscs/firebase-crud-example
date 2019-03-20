@@ -19,10 +19,20 @@ export class UserService {
       }))
     );
   }
-  getById() {
-
+  getById(key) {
+    return this.db.doc(`users/${key}`).snapshotChanges()
+      .pipe(
+        map(res => {
+          const data = res.payload.data();
+          const id = res.payload.id;
+          return {id, ...data};
+        })
+      );
   }
   insert(data) {
     return this.db.collection('users').add(data);
+  }
+  update(data) {
+    return this.db.doc(`users/${data.id}`).update(data);
   }
 }
