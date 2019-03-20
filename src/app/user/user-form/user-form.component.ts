@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { TomadorServicoService } from 'src/app/shared/tomador-servico.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-form',
@@ -11,19 +13,24 @@ export class UserFormComponent implements OnInit {
     email: '',
     nome: '',
     password: '',
+    tomador: '',
     permissoes: [],
     user_id: ''
   };
   @Output() save: EventEmitter<any> = new EventEmitter<any>();
   formulario: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  tomadores$: Observable<any>;
+  constructor(private fb: FormBuilder, private tomadorService: TomadorServicoService) { }
 
   ngOnInit() {
+    this.tomadores$ = this.tomadorService.getAll();
+
     this.formulario = this.fb.group({
       'nome': [''],
       'email': [''],
       'password': [''],
       'permissao': [''],
+      'tomador': [''],
       'user_id': ['']
     });
   }

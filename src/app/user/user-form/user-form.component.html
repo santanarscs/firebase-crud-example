@@ -9,6 +9,20 @@
       <mat-form-field>
         <input matInput type="password" name="password" formControlName="password" placeholder="Senha">
       </mat-form-field>
+      <mat-form-field>
+        <mat-label>Tomador</mat-label>
+        <mat-select formControlName="tomador">
+          <mat-option *ngFor="let tomador of tomadores$ | async" [value]="tomador">{{tomador.razaoSocial}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Permissões</mat-label>
+        <mat-select formControlName="permissao" multiple>
+          <mat-option value="Administrador">Administrador</mat-option>
+          <mat-option value="Supervisor">Usuário Supervisor</mat-option>
+          <mat-option value="Comun">Usuário Comum</mat-option>
+        </mat-select>
+      </mat-form-field>
       <button mat-raised-button color="primary" type="submit">Enviar</button>
     </form>
   </mat-card>
