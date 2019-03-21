@@ -10,7 +10,6 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class TomadorServicoFormComponent implements OnChanges {
 
   @Input() tomador: TomadorServico = {
-    id: undefined,
     cnpj: '',
     razaoSocial: ''
   };
@@ -25,7 +24,6 @@ export class TomadorServicoFormComponent implements OnChanges {
 
   ngOnChanges() {
     if (this.tomador) {
-      // this.formulario.addControl('id', this.fb.control(this.prestador.id, ));
       this.formulario.patchValue({ ...this.tomador });
     }
   }

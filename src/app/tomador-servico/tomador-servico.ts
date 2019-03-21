@@ -1,5 +1,5 @@
 export class TomadorServico {
-    id = null;
+    id? = null;
     cnpj = '';
     razaoSocial = '';
 

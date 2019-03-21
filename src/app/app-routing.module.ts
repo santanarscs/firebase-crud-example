@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'prestadores/new', component: PrestadorServicoNewComponent, canActivate: [AdminGuard] },
 
   { path: 'tomadores', component: TomadorServicoListComponent, canActivate: [AdminGuard]},
-  { path: 'tomadores/:id', component: TomadorServicoEditComponent, canActivate: [AdminGuard] },
+  { path: 'tomadores/new/:id', component: TomadorServicoEditComponent, canActivate: [AdminGuard] },
   { path: 'tomadores/new', component: TomadorServicoNewComponent, canActivate: [AdminGuard] },
   { path: 'usuarios', component: UserListComponent, canActivate: [AdminGuard] },
   { path: 'usuarios/new', component: UserNewComponent, canActivate: [AdminGuard] },

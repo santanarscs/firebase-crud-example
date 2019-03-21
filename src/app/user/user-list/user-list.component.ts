@@ -23,6 +23,9 @@ export class UserListComponent implements OnInit {
   navigateNew() {
     this.router.navigate(['/usuarios/new']);
   }
+  navigateEdit(key) {
+    this.router.navigate(['usuarios/edit', key]);
+  }
   verifyPermissao(permissao) {
     if (permissao) {
       const test = Boolean(permissao.find(v => v == 'Administrador'))
